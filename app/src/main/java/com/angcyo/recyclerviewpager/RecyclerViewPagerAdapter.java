@@ -45,13 +45,13 @@ public abstract class RecyclerViewPagerAdapter<T> extends RBaseAdapter<T> {
         } else {
             item = new View(mContext);
         }
-        item.setLayoutParams(new ViewGroup.LayoutParams(mRecyclerViewPager.getItemWidth(),
-                mRecyclerViewPager.getItemHeight()));
         return new RBaseViewHolder(item, viewType);
     }
 
     @Override
     protected void onBindView(RBaseViewHolder holder, int position, T bean) {
+        holder.itemView.setLayoutParams(new ViewGroup.LayoutParams(mRecyclerViewPager.getItemWidth(),
+                mRecyclerViewPager.getItemHeight()));
         if (holder.getItemViewType() == 200) {
             onBindRawView(holder, position, bean);
         }
